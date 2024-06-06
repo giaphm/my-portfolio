@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/my-portfolio/my-portfolio.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <script type="module" crossorigin src="/my-portfolio/assets/index-CzwmsB9N.js"></script>
+    <link rel="stylesheet" crossorigin href="/my-portfolio/assets/index-DTTYW-TM.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      document.addEventListener("readystatechange", function (event) {
+        if (document.readyState === "complete") {
+          const href = window.location.href;
+          if (href.includes("#")) {
+            const id = href.substring(href.indexOf("#") + 1);
+            const anchorDOM = document.getElementById(id);
+            if (anchorDOM) {
+              setTimeout(() => {
+                anchorDOM.scrollIntoView(true);
+                window.scrollBy({ top: -80, left: 0, behavior: "smooth" });
+              }, 100);
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

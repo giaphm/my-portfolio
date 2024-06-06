@@ -1,0 +1,16 @@
+{
+  "footer": {
+    "socialLinks": [
+      {
+        "socialName": "Github",
+        "icon": "radix-icons:github-logo",
+        "link": "https://github.com/giaphm"
+      },
+      {
+        "socialName": "LinkedIn",
+        "icon": "bi:linkedin",
+        "link": "https://www.linkedin.com/in/giaphm/"
+      }
+    ]
+  }
+}

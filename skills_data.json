@@ -1,0 +1,15 @@
+{
+  "skills": [
+    { "skillName": "HTML5", "icon": "akar-icons:html-fill" },
+    { "skillName": "CSS3", "icon": "akar-icons:css-fill" },
+    { "skillName": "Javascript", "icon": "teenyicons:javascript-outline" },
+    { "skillName": "Typescript", "icon": "file-icons:typescript" },
+    { "skillName": "Tailwindcss", "icon": "simple-icons:tailwindcss" },
+    { "skillName": "ShadcnUI", "icon": "simple-icons:shadcnui" },
+    { "skillName": "AntD", "icon": "simple-icons:antdesign" },
+    { "skillName": "React", "icon": "akar-icons:react-fill" },
+    { "skillName": "tRPC", "icon": "simple-icons:trpc" },
+    { "skillName": "Node.js", "icon": "devicon-plain:nodejs-wordmark" },
+    { "skillName": "Docker", "icon": "file-icons:docker" }
+  ]
+}
