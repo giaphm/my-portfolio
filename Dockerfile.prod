@@ -1,8 +1,9 @@
 FROM node:21-alpine
+RUN npm install -g pnpm
 WORKDIR /app
 COPY package.json .
-RUN npm install
+RUN pnpm install
 COPY . .
-RUN npm run build
+RUN pnpm build
 EXPOSE 8080
-CMD ["npm", "run", "preview"]
+CMD ["pnpm", "preview"]
