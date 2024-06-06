@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "title": "My portfolio",
+      "images": ["/my-portfolio.png"],
+      "desc": "My portfolio"
+    },
+    {
+      "title": "CMS",
+      "images": ["/my-portfolio.png"],
+      "desc": "Content Management System"
+    }
+  ]
+}

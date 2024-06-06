@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/my-portfolio.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      document.addEventListener("readystatechange", function (event) {
+        if (document.readyState === "complete") {
+          const href = window.location.href;
+          if (href.includes("#")) {
+            const id = href.substring(href.indexOf("#") + 1);
+            const anchorDOM = document.getElementById(id);
+            if (anchorDOM) {
+              setTimeout(() => {
+                anchorDOM.scrollIntoView(true);
+                window.scrollBy({ top: -80, left: 0, behavior: "smooth" });
+              }, 100);
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

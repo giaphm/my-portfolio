@@ -1,0 +1,40 @@
+{
+  "experiences": [
+    {
+      "position": "Front-end Intern",
+      "companyName": "FPT Sofware",
+      "icon": "akar-icons:react-fill",
+      "date": "March 2019 - November 2019",
+      "techStacks": ["HTML", "CSS", "React"]
+    },
+    {
+      "position": "Back-end Developer",
+      "companyName": "VcCorp",
+      "icon": "akar-icons:python-fill",
+      "date": "Novembar 2020 - March 2022",
+      "techStacks": ["Python", "Flask"]
+    },
+    {
+      "position": "Fullstack Developer",
+      "companyName": "Mobifone IT center",
+      "icon": "akar-icons:react-fill",
+      "date": "March 2022 - Present",
+      "techStacks": [
+        "HTML",
+        "CSS",
+        "Javascript",
+        "Typescript",
+        "React",
+        "Shadcn UI",
+        "TailwindCss",
+        "tRPC",
+        "NextJs",
+        "Next-Auth",
+        "Next-Intl",
+        "Java",
+        "Spring boot",
+        "ThymeLeaf"
+      ]
+    }
+  ]
+}
