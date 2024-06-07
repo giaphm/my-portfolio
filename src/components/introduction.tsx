@@ -1,23 +1,51 @@
-import { useCallback, useDeferredValue, useState } from "react";
+import { useCallback, useDeferredValue, useEffect, useState } from "react";
 import Switch from "react-switch";
 import Typical from "react-typical";
 import Icons from "./icons";
 import { useTranslation } from "react-i18next";
 import { cn } from "~/lib/utils";
+import { Link, useSearchParams } from "react-router-dom";
 
 function Introduction() {
-  const [darkThemeToggle, setDarkThemeToggle] = useState<boolean>(false);
+  const [searchParams] = useSearchParams();
+  const locale = searchParams.get("locale") || "en";
+  const theme = searchParams.get("theme") || "light";
+  const [darkThemeToggle, setDarkThemeToggle] = useState<boolean>(
+    theme === "dark",
+  );
   const deferredDarkThemeToggle = useDeferredValue(darkThemeToggle);
   const { i18n } = useTranslation();
 
   const onThemeToggleChange = useCallback(() => {
     if (deferredDarkThemeToggle) {
       document.documentElement.classList.remove("dark");
+      window.history.pushState(
+        null,
+        "",
+        `?${new URLSearchParams({ locale, theme: "light" })}`,
+      );
+    } else {
+      document.documentElement.classList.add("dark");
+      window.history.pushState(
+        null,
+        "",
+        `?${new URLSearchParams({ locale, theme: "dark" })}`,
+      );
+    }
+    setDarkThemeToggle(!deferredDarkThemeToggle);
+  }, [deferredDarkThemeToggle, locale]);
+
+  useEffect(() => {
+    i18n.changeLanguage(locale);
+  }, [i18n, locale]);
+
+  useEffect(() => {
+    if (theme === "light") {
+      document.documentElement.classList.remove("dark");
     } else {
       document.documentElement.classList.add("dark");
     }
-    setDarkThemeToggle(!deferredDarkThemeToggle);
-  }, [deferredDarkThemeToggle]);
+  }, [theme]);
 
   return (
     <section id="introduction">
@@ -71,26 +99,30 @@ function Introduction() {
           />
         </div>
         <div className="flex flex-row justify-center mb-auto bg-cyan-400 dark:bg-slate-800 gap-x-8 pb-2">
-          <Icons.iconify
-            className={cn(
-              "cursor-pointer w-[60px] h-[60px] 2xl:w-[80px] 2xl:h-[80px]",
-              i18n.language === "en" ? "brightness-[0.4]" : "",
-            )}
-            icon="twemoji:flag-united-states"
-            // width={60}
-            // height={60}
-            onClick={() => i18n.changeLanguage("en")}
-          />
-          <Icons.iconify
-            className={cn(
-              "cursor-pointer w-[60px] h-[60px] 2xl:w-[80px] 2xl:h-[80px]",
-              i18n.language === "vn" ? "brightness-[0.4]" : "",
-            )}
-            icon="twemoji:flag-vietnam"
-            // width={60}
-            // height={60}
-            onClick={() => i18n.changeLanguage("vn")}
-          />
+          <Link to={`?${new URLSearchParams({ locale: "en", theme })}`}>
+            <Icons.iconify
+              className={cn(
+                "cursor-pointer w-[60px] h-[60px] 2xl:w-[80px] 2xl:h-[80px]",
+                i18n.language === "en" ? "brightness-[0.4]" : "",
+              )}
+              icon="twemoji:flag-united-states"
+              // width={60}
+              // height={60}
+              // onClick={() => i18n.changeLanguage("en")}
+            />
+          </Link>
+          <Link to={`?${new URLSearchParams({ locale: "vn", theme })}`}>
+            <Icons.iconify
+              className={cn(
+                "cursor-pointer w-[60px] h-[60px] 2xl:w-[80px] 2xl:h-[80px]",
+                i18n.language === "vn" ? "brightness-[0.4]" : "",
+              )}
+              icon="twemoji:flag-vietnam"
+              // width={60}
+              // height={60}
+              // onClick={() => i18n.changeLanguage("vn")}
+            />
+          </Link>
         </div>
       </div>
     </section>

@@ -1,22 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App";
+import "./i18n";
 import "./index.css";
 import "./main.css";
-import App from "./App";
-import { About } from "./pages/about";
-import "./i18n";
 
 const router = createBrowserRouter([
   {
     path: "/my-portfolio",
     element: <App />,
-    children: [
-      {
-        path: "about",
-        element: <About />,
-      },
-    ],
   },
 ]);
 
