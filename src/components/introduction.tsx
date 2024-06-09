@@ -3,11 +3,18 @@ import Switch from "react-switch";
 import Icons from "./icons";
 import { useTranslation } from "react-i18next";
 import { cn } from "~/lib/utils";
-import { Link, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 
 function Introduction() {
   const [searchParams] = useSearchParams();
+  const location = useLocation();
+  const navigate = useNavigate();
   const locale = searchParams.get("locale") || "en";
   const theme = searchParams.get("theme") || "light";
   const [darkThemeToggle, setDarkThemeToggle] = useState<boolean>(
@@ -19,21 +26,19 @@ function Introduction() {
   const onThemeToggleChange = useCallback(() => {
     if (deferredDarkThemeToggle) {
       document.documentElement.classList.remove("dark");
-      window.history.pushState(
-        null,
-        "",
-        `?${new URLSearchParams({ locale, theme: "light" })}`,
-      );
+      navigate({
+        search: `?${new URLSearchParams({ locale, theme: "light" })}`,
+        hash: location.hash,
+      });
     } else {
       document.documentElement.classList.add("dark");
-      window.history.pushState(
-        null,
-        "",
-        `?${new URLSearchParams({ locale, theme: "dark" })}`,
-      );
+      navigate({
+        search: `?${new URLSearchParams({ locale, theme: "dark" })}`,
+        hash: location.hash,
+      });
     }
     setDarkThemeToggle(!deferredDarkThemeToggle);
-  }, [deferredDarkThemeToggle, locale]);
+  }, [deferredDarkThemeToggle, locale, location.hash, navigate]);
 
   useEffect(() => {
     i18n.changeLanguage(locale);
@@ -105,7 +110,12 @@ function Introduction() {
           />
         </div>
         <div className="flex flex-row justify-center mb-auto bg-cyan-400 dark:bg-slate-800 gap-x-8 pb-2">
-          <Link to={`?${new URLSearchParams({ locale: "en", theme })}`}>
+          <Link
+            to={{
+              search: `?${new URLSearchParams({ locale: "en", theme })}`,
+              hash: location.hash,
+            }}
+          >
             <Icons.iconify
               className={cn(
                 "cursor-pointer w-[60px] h-[60px] 2xl:w-[80px] 2xl:h-[80px]",
@@ -117,7 +127,12 @@ function Introduction() {
               // onClick={() => i18n.changeLanguage("en")}
             />
           </Link>
-          <Link to={`?${new URLSearchParams({ locale: "vn", theme })}`}>
+          <Link
+            to={{
+              search: `${new URLSearchParams({ locale: "vn", theme })}`,
+              hash: location.hash,
+            }}
+          >
             <Icons.iconify
               className={cn(
                 "cursor-pointer w-[60px] h-[60px] 2xl:w-[80px] 2xl:h-[80px]",

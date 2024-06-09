@@ -1,11 +1,15 @@
 import { useTranslation } from "react-i18next";
 import styles from "./styles/navBar.module.css";
 import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 
 function NavBar() {
   const { t } = useTranslation();
   const handleScrollAnchor = useHandleScrollAnchor();
+  const [searchParams] = useSearchParams();
+  const locale = searchParams.get("locale") || "en";
+  const theme = searchParams.get("theme") || "light";
+  const location = useLocation();
 
   return (
     <div>
@@ -52,36 +56,42 @@ function NavBar() {
         </a>
 
         <Link
-          to={"/my-portfolio/"}
-          className={`${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-3 cursor-pointer dark:after:bg-white`}
+          to={{
+            hash: "",
+            search: `${new URLSearchParams({ locale, theme })}`,
+          }}
+          className={`${location.key === "default" || location.hash === "" ? "after:w-full" : ""} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-3 cursor-pointer dark:after:bg-white`}
           onClick={() => handleScrollAnchor("#introduction")}
         >
           {t("home.title")}
         </Link>
         <Link
-          to={"#aboutMe"}
-          className={`${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-3 cursor-pointer dark:after:bg-white`}
+          to={{
+            hash: "aboutMe",
+            search: `${new URLSearchParams({ locale, theme })}`,
+          }}
+          className={`${location.hash.includes("#aboutMe") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-3 cursor-pointer dark:after:bg-white`}
           onClick={() => handleScrollAnchor("#aboutMe")}
         >
           {t("aboutMe.title")}
         </Link>
         <Link
-          to={"#projects"}
-          className={`${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-3 cursor-pointer dark:after:bg-white`}
+          to={`?${new URLSearchParams({ locale, theme })}#projects`}
+          className={`${location.hash.includes("#projects") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-3 cursor-pointer dark:after:bg-white`}
           onClick={() => handleScrollAnchor("#projects")}
         >
           {t("projects.title")}
         </Link>
         <Link
-          to={"#skills"}
-          className={`${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-3 cursor-pointer dark:after:bg-white`}
+          to={`?${new URLSearchParams({ locale, theme })}#skills`}
+          className={`${location.hash.includes("#skills") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-3 cursor-pointer dark:after:bg-white`}
           onClick={() => handleScrollAnchor("#skills")}
         >
           {t("skills.title")}
         </Link>
         <Link
-          to={"#experiences"}
-          className={`${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-3 cursor-pointer dark:after:bg-white`}
+          to={`?${new URLSearchParams({ locale, theme })}#experiences`}
+          className={`${location.hash.includes("#experiences") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-3 cursor-pointer dark:after:bg-white`}
           onClick={() => handleScrollAnchor("#experiences")}
         >
           {t("experiences.title")}
