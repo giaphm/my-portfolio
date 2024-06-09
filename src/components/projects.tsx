@@ -5,6 +5,7 @@ import { useState } from "react";
 import Icons from "./icons";
 import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
 import { Link } from "react-router-dom";
+import { ThreeDCardDemo } from "./3d-card-demo";
 
 export default function Projects() {
   const { t } = useTranslation();
@@ -61,6 +62,7 @@ export default function Projects() {
               </div>
             </div>
           ))}
+          <ThreeDCardDemo />
         </div>
       </div>
       <ProjectSlideModal

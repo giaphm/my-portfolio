@@ -1,7 +1,7 @@
+import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
 /* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -9,6 +9,7 @@ module.exports = {
     "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
+  darkMode: ["class"],
   theme: {
     container: {
       center: true,
@@ -83,5 +84,17 @@ module.exports = {
       "open-sans": ["open-sans", "sans-serif"],
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), addVariablesForColors],
 };
+
+// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
