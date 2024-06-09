@@ -1,10 +1,10 @@
 import { useCallback, useDeferredValue, useEffect, useState } from "react";
 import Switch from "react-switch";
-import Typical from "react-typical";
 import Icons from "./icons";
 import { useTranslation } from "react-i18next";
 import { cn } from "~/lib/utils";
 import { Link, useSearchParams } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
 
 function Introduction() {
   const [searchParams] = useSearchParams();
@@ -57,11 +57,16 @@ function Introduction() {
             className="dark:fill-white w-[150px] h-[150px] 2xl:w-[175px] 2xl:h-[175px]"
           />
           <h1 className="2xl:text-5xl">
-            <Typical steps={["Hoang Minh Giap"]} wrapper="p" />
+            <TypeAnimation
+              sequence={["Hoang Minh Giap"]}
+              speed={40}
+              cursor={false}
+              wrapper={"p"}
+            />
           </h1>
           <h2 className="font-raleway font-light h-12 w-full text-center 2xl:text-3xl">
-            <Typical
-              steps={[
+            <TypeAnimation
+              sequence={[
                 "FRONT-END DEVELOPER",
                 1500,
                 "WEB DEVELOPER",
@@ -69,8 +74,9 @@ function Introduction() {
                 "SOFTWARE ENGINEER",
                 1500,
               ]}
-              wrapper="p"
-              loop={Infinity}
+              speed={50}
+              repeat={Infinity}
+              wrapper={"p"}
             />
           </h2>
           <Switch
