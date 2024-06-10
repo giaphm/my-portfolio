@@ -54,8 +54,9 @@ function Introduction() {
 
   return (
     <section id="introduction">
-      <div className="h-screen grid grid-rows-[1fr_auto]">
-        <div className="pt-[80px] flex flex-col justify-center items-center w-full bg-cyan-400 dark:bg-slate-800">
+      <div className="h-screen grid grid-rows-[1fr_auto] bg-grid-black/[0.2] dark:bg-grid-white/[0.2] bg-cyan-400 dark:bg-slate-800">
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-cyan-400 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
+        <div className="pt-[80px] flex flex-col justify-center items-center w-full">
           <Icons.headerIcon
             // height={150}
             // width={150}
@@ -109,7 +110,7 @@ function Introduction() {
             id="icon-switch"
           />
         </div>
-        <div className="flex flex-row justify-center mb-auto bg-cyan-400 dark:bg-slate-800 gap-x-8 pb-2">
+        <div className="flex flex-row justify-center mb-auto gap-x-8 pb-2 relative">
           <Link
             to={{
               search: `?${new URLSearchParams({ locale: "en", theme })}`,
@@ -119,7 +120,7 @@ function Introduction() {
             <Icons.iconify
               className={cn(
                 "cursor-pointer w-[60px] h-[60px] 2xl:w-[80px] 2xl:h-[80px]",
-                i18n.language === "en" ? "brightness-[0.4]" : "",
+                i18n.language === "en" ? "" : "brightness-[0.4]",
               )}
               icon="twemoji:flag-united-states"
               // width={60}
@@ -136,7 +137,7 @@ function Introduction() {
             <Icons.iconify
               className={cn(
                 "cursor-pointer w-[60px] h-[60px] 2xl:w-[80px] 2xl:h-[80px]",
-                i18n.language === "vn" ? "brightness-[0.4]" : "",
+                i18n.language === "vn" ? "" : "brightness-[0.4]",
               )}
               icon="twemoji:flag-vietnam"
               // width={60}
