@@ -3,7 +3,6 @@ import styles from "./styles/navBar.module.css";
 import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import React from "react";
-import { NavBarMobile } from "./navBarMobile";
 
 function NavBarDesktop() {
   const { t } = useTranslation();
@@ -22,7 +21,7 @@ function NavBarDesktop() {
         <a
           href="https://github.com/giaphm"
           target="_blank"
-          className={styles["github-corner"]}
+          className={`${styles["github-corner"]}`}
           aria-label="View source on GitHub"
         >
           <svg
@@ -102,7 +101,6 @@ function NavBarDesktop() {
           </Link>
         </div>
       </nav>
-      <NavBarMobile />
     </React.Fragment>
   );
 }

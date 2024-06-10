@@ -26,9 +26,17 @@ export function NavBarMobile() {
 
   return (
     <motion.nav
-      className="fixed top-0 right-0 bottom-0 w-full z-[10] md:hidden"
+      className="fixed top-0 right-0 bottom-0 z-[10] md:hidden"
       initial={false}
       animate={isOpenMenuBar ? "open" : "closed"}
+      variants={{
+        open: {
+          width: "100%",
+        },
+        close: {
+          width: "0%",
+        },
+      }}
     >
       <motion.div
         className={`absolute inset-0 backdrop-blur-md`}

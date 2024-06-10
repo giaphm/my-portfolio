@@ -54,7 +54,10 @@ function Introduction() {
 
   return (
     <section id="introduction">
-      <div className="h-screen grid grid-rows-[1fr_auto] bg-grid-black/[0.2] dark:bg-grid-white/[0.2] bg-cyan-400 dark:bg-slate-800">
+      <div
+        style={{ height: window.innerHeight }}
+        className="grid grid-rows-[1fr_auto] bg-grid-black/[0.2] dark:bg-grid-white/[0.2] bg-cyan-400 dark:bg-slate-800"
+      >
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-cyan-400 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
         <div className="pt-[80px] flex flex-col justify-center items-center w-full">
           <Icons.headerIcon
