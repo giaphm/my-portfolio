@@ -9,5 +9,10 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - /app/node_modules
-      - ./:/app/
+      # - "/app/node_modules" # mount the /app/node_modules, in the installation step in Dockerfile, in image to the container
+      # equivalent to - frontend-volume:/app/node_modules and uncomment volumes part
+      - "frontend-volume:/app/node_modules"
+      - "./:/app/" # mount from Docker host's file system, host machine, to the container
+
+volumes:
+  frontend-volume:
