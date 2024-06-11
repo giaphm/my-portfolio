@@ -58,23 +58,25 @@ function Introduction() {
         style={{ height: window.innerHeight }}
         className="grid grid-rows-[1fr_auto] bg-grid-black/[0.2] dark:bg-grid-white/[0.2] bg-cyan-400 dark:bg-slate-800"
       >
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-cyan-400 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
-        <div className="pt-[80px] flex flex-col justify-center items-center w-full">
+        <div className="absolute z-[1] pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-cyan-400 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]" />
+        <div className="z-[2] pt-[80px] flex flex-col justify-center items-center w-full">
           <Icons.headerIcon
             // height={150}
             // width={150}
             className="dark:fill-white w-[150px] h-[150px] 2xl:w-[175px] 2xl:h-[175px]"
           />
-          <h1 className="2xl:text-5xl">
+          <h1>
             <TypeAnimation
+              className="text-3xl"
               sequence={["Hoang Minh Giap"]}
               speed={40}
               cursor={false}
               wrapper={"p"}
             />
           </h1>
-          <h2 className="font-raleway font-light h-12 w-full text-center 2xl:text-3xl">
+          <h2 className="">
             <TypeAnimation
+              className="font-raleway font-light"
               sequence={[
                 "FRONT-END DEVELOPER",
                 1500,
@@ -93,7 +95,7 @@ function Introduction() {
             onChange={onThemeToggleChange}
             offColor="#155e75"
             onColor="#353535"
-            className="react-switch mx-auto"
+            className="react-switch mx-auto mt-3"
             width={90}
             height={40}
             uncheckedIcon={false}
@@ -113,7 +115,7 @@ function Introduction() {
             id="icon-switch"
           />
         </div>
-        <div className="flex flex-row justify-center mb-auto gap-x-8 pb-2 relative">
+        <div className="z-[2] flex flex-row justify-center mb-auto gap-x-8 pb-2 relative">
           <Link
             to={{
               search: `?${new URLSearchParams({ locale: "en", theme })}`,
