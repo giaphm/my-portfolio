@@ -17,7 +17,10 @@ export const SmoothScrollProgressBar: ComponentProps = ({
   return (
     <motion.div
       style={{ scaleX }}
-      className={cn("fixed inset-0 h-1 origin-center bg-black z-20", className)}
+      className={cn(
+        "fixed inset-0 h-1 origin-left bg-cyan-700 z-20",
+        className,
+      )}
       {...props}
     />
   );
