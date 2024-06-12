@@ -9,7 +9,7 @@ import { SmoothScrollProgressBar } from "./components/smooth-scroll-progressbar"
 
 function App() {
   return (
-    <div className="h-screen mt-0">
+    <>
       <SmoothScrollProgressBar />
       <NavBar />
       <Introduction />
@@ -18,7 +18,7 @@ function App() {
       <Skills />
       <Experiences />
       <Footer />
-    </div>
+    </>
   );
 }
 

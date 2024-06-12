@@ -24,6 +24,7 @@
     "react-router-dom": "^6.23.1",
     "react-switch": "^7.0.0",
     "react-type-animation": "^3.2.0",
+    "react-use": "^17.5.0",
     "react-vertical-timeline-component": "^3.6.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
