@@ -108,7 +108,7 @@ export function NavBarMobile() {
               hash: "",
               search: `${new URLSearchParams({ locale, theme })}`,
             }}
-            className={`${location.key === "default" || location.hash === "" ? "after:w-full" : ""} ${styles["navBar-item"]} text-left text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white cursor-pointer dark:after:bg-white`}
+            className={`${location.key === "default" || location.hash === "" ? "after:w-full" : ""} ${styles["navBar-item"]} text-left text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 cursor-pointer dark:after:bg-white`}
             onClick={() => handleNavigationMobile("#introduction")}
           >
             {t("home.title")}
@@ -140,7 +140,7 @@ export function NavBarMobile() {
               hash: "aboutMe",
               search: `${new URLSearchParams({ locale, theme })}`,
             }}
-            className={`${location.hash.includes("#aboutMe") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#aboutMe") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 cursor-pointer dark:after:bg-white`}
             onClick={() => handleNavigationMobile("#aboutMe")}
           >
             {t("aboutMe.title")}
@@ -169,7 +169,7 @@ export function NavBarMobile() {
         >
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#projects`}
-            className={`${location.hash.includes("#projects") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#projects") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 cursor-pointer dark:after:bg-white`}
             onClick={() => handleNavigationMobile("#projects")}
           >
             {t("projects.title")}
@@ -198,7 +198,7 @@ export function NavBarMobile() {
         >
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#skills`}
-            className={`${location.hash.includes("#skills") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#skills") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 cursor-pointer dark:after:bg-white`}
             onClick={() => handleNavigationMobile("#skills")}
           >
             {t("skills.title")}
@@ -227,7 +227,7 @@ export function NavBarMobile() {
         >
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#experiences`}
-            className={`${location.hash.includes("#experiences") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#experiences") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 cursor-pointer dark:after:bg-white`}
             onClick={() => handleNavigationMobile("#experiences")}
           >
             {t("experiences.title")}
