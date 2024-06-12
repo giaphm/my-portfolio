@@ -3,12 +3,14 @@
     {
       "title": "My portfolio",
       "images": ["/my-portfolio.png"],
-      "desc": "My portfolio"
+      "desc": "My portfolio",
+      "repoLink": "https://github.com/giaphm/my-portfolio"
     },
     {
       "title": "CMS",
       "images": ["/my-portfolio.png"],
-      "desc": "Content Management System"
+      "desc": "Content Management System",
+      "repoLink": "https://github.com/giaphm/my-portfolio"
     }
   ]
 }
