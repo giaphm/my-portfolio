@@ -35,7 +35,7 @@ export default function AboutMe() {
       </h2>
       <div className="flex flex-col gap-y-5 md:flex-row">
         <div className="basis-full md:basis-4/12">
-          <div className="dark:border border-slate-800 mt-[50px] mx-auto md:mx-[35px] mb-[30px] px-[15px] py-[30px] text-center w-[230px] shadow-[0_4px_6px_rgba(0,0,0,.3)]">
+          <div className="dark:border border-slate-800 mt-[50px] mx-auto md:mx-[35px] lg:mx-auto mb-[30px] px-[15px] py-[30px] text-center w-[230px] shadow-[0_4px_6px_rgba(0,0,0,.3)]">
             <img src="./avatar.jpg" />
             <div className="flex flex-row mt-[15px] justify-center gap-x-4">
               <Icons.iconify icon="logos:react" width="42" height="42" />
