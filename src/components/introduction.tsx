@@ -10,7 +10,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
-import { use100vh } from "~/hooks/use100vh";
+import { useWindowSize } from "react-use";
 
 function Introduction() {
   const [searchParams] = useSearchParams();
@@ -23,7 +23,7 @@ function Introduction() {
   );
   const deferredDarkThemeToggle = useDeferredValue(darkThemeToggle);
   const { i18n } = useTranslation();
-  const heightScreen = use100vh();
+  const { height } = useWindowSize();
 
   const onThemeToggleChange = useCallback(() => {
     if (deferredDarkThemeToggle) {
@@ -57,12 +57,11 @@ function Introduction() {
   return (
     <section id="introduction">
       <div
-        // ref={ref}
-        style={{ height: heightScreen }}
+        style={{ height: height }}
         className={`grid grid-rows-[1fr_auto] bg-grid-black/[0.2] dark:bg-grid-white/[0.2] bg-cyan-400 dark:bg-slate-800`}
       >
         <div
-          style={{ height: heightScreen }}
+          style={{ height: height }}
           className="absolute z-[1] pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-cyan-400 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"
         />
         <div className="z-[2] pt-[80px] flex flex-col justify-center items-center w-full">
