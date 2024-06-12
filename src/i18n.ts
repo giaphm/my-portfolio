@@ -16,12 +16,12 @@ i18n
           aboutMe: {
             title: "About me",
             hi: "Hi",
-            description: `👋 I'm Hoang Minh Giap. I'm working with newest frameworks and
-            technologies like React, NodeJs and Docker. My technical stacks
-            are HTML, CSS, Javascript, Typescript, React, TailwindCSS,
-            Shadcn, TRPC, NextJs, Next-Auth, Prisma. Let me know any
-            questions about this portfolio. Feel free to contact me if you
-            have any job opportunities. Thank you 💜`,
+            description: `👋 I'm Hoang Minh Giap. I'm working with newest frameworks
+            and technologies like React, NodeJs and Docker. My technical stacks
+            are HTML, CSS, Javascript, Typescript, React, TailwindCSS, Shadcn, TRPC,
+            NextJs, Next-Auth, Prisma, Docker, Docker-compose. Let me know any questions
+            about this portfolio. Feel free to contact me if you have any job opportunities.
+            Thank you 💜`,
           },
           projects: {
             title: "Projects",
@@ -51,9 +51,9 @@ i18n
             description: `👋 Mình là Hoàng Minh Giáp. Mình làm việc với các frameworks 
             và công nghệ mới như React, Node.js và Docker. Tech stack chính của 
             mình đó là HTML5, CSS3, Javascript, Typescript, React, TailwindCSS, 
-            Shadcn, TRPC, NextJs, Next-Auth, Prisma. Cho mình biết thêm thông tin 
-            nếu bạn có câu hỏi gì về mình, cũng như có các cơ hội về công việc nhé. 
-            Cảm ơn bạn 💜`,
+            Shadcn, TRPC, NextJs, Next-Auth, Prisma, Docker, Docker-compose. Cho mình
+            biết thêm thông tin nếu bạn có câu hỏi gì về mình, cũng như có các cơ hội
+            về công việc nhé. Cảm ơn bạn 💜`,
           },
           projects: {
             title: "Dự án",

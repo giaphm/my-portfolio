@@ -4,6 +4,7 @@ export type ProjectType = {
   title: string;
   images: string[];
   desc: string;
+  repoLink: string;
 };
 
 export function useLoadProjects() {

@@ -8,7 +8,7 @@ export default function AboutMe() {
   const handleScrollAnchor = useHandleScrollAnchor();
 
   return (
-    <section id="aboutMe" className="pb-[5%] dark:bg-[#1F1F1F]">
+    <section id="aboutMe" className="pb-12 dark:bg-[#1F1F1F]">
       <h2 className="pt-12 text-center font-light">
         <div className="flex flex-row justify-center items-center gap-x-2 group">
           <div className="relative">
@@ -45,7 +45,7 @@ export default function AboutMe() {
           </div>
         </div>
         <div className="basis-full md:basis-8/12">
-          <div className="card border mt-2 md:mt-20 mx-auto md:mx-2 flex-col w-[80%] md:w-[90%]">
+          <div className="card border mt-2 md:mt-20 mx-5 md:mx-2 flex-col w-auto md:w-[90%]">
             <div className="cardHeader flex flex-row h-[31px] items-center gap-x-2 pl-[15px] bg-black/[0.03] border-b">
               <Icons.iconify icon="twemoji:red-circle" width="10" height="10" />
               <Icons.iconify
@@ -60,11 +60,11 @@ export default function AboutMe() {
               />
             </div>
             <div className="cardBody text-left p-5">
-              <p className="font-serif font-light sm:text-xs 2xl:text-lg">
+              <p className="text-base md:text-lg font-serif font-light sm:text-xs 2xl:text-lg">
                 {t("aboutMe.hi")} :)
               </p>
               <br />
-              <p className="text-sm sm:text-xs 2xl:text-lg font-light font-serif leading-8">
+              <p className="text-sm 2xl:text-lg font-light font-serif leading-8">
                 {t("aboutMe.description")}
               </p>
             </div>
