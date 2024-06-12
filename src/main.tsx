@@ -4,6 +4,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import "./i18n";
 import "./index.css";
+import smoothscroll from "smoothscroll-polyfill";
+
+smoothscroll.polyfill();
 
 const router = createBrowserRouter([
   {
