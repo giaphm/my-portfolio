@@ -6,21 +6,24 @@ import Icons from "./icons";
 import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
 import { Link } from "react-router-dom";
 import { CardProject } from "./cardProject";
+import { useCycle } from "framer-motion";
 
 export default function Projects() {
   const { t } = useTranslation();
   const projects = useLoadProjects();
-  const [showModal, setShowModal] = useState<boolean>(false);
+  // const [showModal, setShowModal] = useState<boolean>(false);
+  const [isOpenModal, toggleOpenModal] = useCycle(false, true);
   const [dataModal, setDataModal] = useState<any | null>(null);
   const handleScrollAnchor = useHandleScrollAnchor();
 
   const onHandleShowModal = (project: ProjectType) => {
-    setShowModal(true);
     setDataModal(project);
+    toggleOpenModal();
   };
 
   const onHandleHideModal = () => {
-    setShowModal(false);
+    setDataModal(null);
+    toggleOpenModal();
   };
 
   return (
@@ -50,20 +53,7 @@ export default function Projects() {
             </div>
           </div>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 px-5">
-          {/* {projects?.map((project, idx) => (
-            <div key={idx} className="px-4 py-2">
-              <div
-                className="cursor-pointer space-y-4 p-3 bg-white ease-linear duration-300 shadow-[0_4px_6px_rgba(0,0,0,.3)] hover:shadow-[0_10px_20px_rgba(0,0,0,.7)] hover:scale-[1.01]"
-                onClick={() => onHandleShowModal(project)}
-              >
-                <img src="./my-portfolio.png" />
-                <p className="text-center font-open-sans text-xl sm:text-base font-light tracking-[3px] dark:text-black 2xl:text-2xl">
-                  {project.title.toLocaleUpperCase()}
-                </p>
-              </div>
-            </div>
-          ))} */}
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-5 xl:grid-cols-3 px-5">
           {projects.map((project, idx) => (
             <CardProject
               key={idx}
@@ -77,7 +67,7 @@ export default function Projects() {
         </div>
       </div>
       <ProjectSlideModal
-        show={showModal}
+        show={isOpenModal}
         onHide={onHandleHideModal}
         data={dataModal}
       />
