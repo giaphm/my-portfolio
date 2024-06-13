@@ -1,0 +1,1 @@
+import{r as c}from"./index-CZpS6Bmw.js";const s=(r,e,n)=>{const t=e-r;return((n-r)%t+t)%t+r};function l(...r){const e=c.useRef(0),[n,t]=c.useState(r[e.current]),o=c.useCallback(u=>{e.current=typeof u!="number"?s(0,r.length,e.current+1):u,t(r[e.current])},[r.length,...r]);return[n,o]}export{l as u};
