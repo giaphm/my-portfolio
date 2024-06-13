@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { SkillType, useLoadSkills } from "~/hooks/useLoadSkills";
 import Icons from "./icons";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
 import {
   AnimatePresence,
@@ -28,11 +28,9 @@ function SkillsBody({ skills }: { skills: SkillType[] }) {
     springConfig,
   );
   const handleMouseMove = (event: any) => {
-    console.log("abc");
     const halfWidth = event.target.offsetWidth
       ? event.target.offsetWidth
       : event.target.clientWidth / 2;
-    console.log("halfWidth", halfWidth);
     x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
   };
 
@@ -115,6 +113,9 @@ export default function Skills() {
   const { t } = useTranslation();
   const skills = useLoadSkills();
   const handleScrollAnchor = useHandleScrollAnchor();
+  const [searchParams] = useSearchParams();
+  const locale = searchParams.get("locale") || "en";
+  const theme = searchParams.get("theme") || "light";
 
   return (
     <section id="skills" className="bg-[#1f1f1f] pb-[10%]">
@@ -122,14 +123,20 @@ export default function Skills() {
         <div className="flex flex-row justify-center items-center gap-x-2 group">
           <div className="relative">
             <Link
-              to={"#skills"}
+              to={{
+                hash: "skills",
+                search: `${new URLSearchParams({ locale, theme })}`,
+              }}
               className="cursor-pointer font-open-sans 2xl:text-4xl"
               onClick={() => handleScrollAnchor("#skills")}
             >
               {t("skills.title").toLocaleUpperCase()}
             </Link>
             <Link
-              to={"#skills"}
+              to={{
+                hash: "skills",
+                search: `${new URLSearchParams({ locale, theme })}`,
+              }}
               className="absolute left-full opacity-0 group-hover:opacity-100 cursor-pointer"
               onClick={() => handleScrollAnchor("#skills")}
             >

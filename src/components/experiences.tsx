@@ -7,27 +7,30 @@ import "react-vertical-timeline-component/style.min.css";
 import Icons from "./icons";
 import { useLoadExperiences } from "~/hooks/useLoadExperiences";
 import { Badge } from "./badge";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
 
 export function Experiences() {
   const { t } = useTranslation();
   const experiences = useLoadExperiences();
   const handleScrollAnchor = useHandleScrollAnchor();
+  const [searchParams] = useSearchParams();
+  const locale = searchParams.get("locale") || "en";
+  const theme = searchParams.get("theme") || "light";
 
   return (
     <section id="experiences" className="bg-cyan-400 pb-[5%] dark:bg-slate-800">
       <h2 className="py-[5%] text-center font-light">
         <div className="flex flex-row justify-center items-center gap-x-2 group">
           <Link
-            to={"#experiences"}
+            to={`?${new URLSearchParams({ locale, theme })}#experiences`}
             className="cursor-pointer font-open-sans 2xl:text-4xl"
             onClick={() => handleScrollAnchor("#experiences")}
           >
             {t("experiences.title").toLocaleUpperCase()}
           </Link>
           <Link
-            to={"#experiences"}
+            to={`?${new URLSearchParams({ locale, theme })}#experiences`}
             className="opacity-0 group-hover:opacity-100 cursor-pointer"
             onClick={() => handleScrollAnchor("#experiences")}
           >

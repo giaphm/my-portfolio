@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Icons from "./icons";
 import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { RenderOnViewportEntry } from "./renderOnViewportEntry";
 
@@ -86,6 +86,9 @@ function AboutMeBody() {
 export default function AboutMe() {
   const { t } = useTranslation();
   const handleScrollAnchor = useHandleScrollAnchor();
+  const [searchParams] = useSearchParams();
+  const locale = searchParams.get("locale") || "en";
+  const theme = searchParams.get("theme") || "light";
 
   return (
     <section id="aboutMe" className="pb-12 dark:bg-[#1F1F1F]">
@@ -93,14 +96,14 @@ export default function AboutMe() {
         <div className="flex flex-row justify-center items-center gap-x-2 group">
           <div className="relative">
             <Link
-              to={"#aboutMe"}
+              to={`?${new URLSearchParams({ locale, theme })}#aboutMe`}
               className="cursor-pointer font-open-sans 2xl:text-4xl"
               onClick={() => handleScrollAnchor("#aboutMe")}
             >
               {t("aboutMe.title").toLocaleUpperCase()}
             </Link>
             <Link
-              to={"#aboutMe"}
+              to={`?${new URLSearchParams({ locale, theme })}#aboutMe`}
               className="absolute left-full opacity-0 group-hover:opacity-100 cursor-pointer"
               onClick={() => handleScrollAnchor("#aboutMe")}
             >

@@ -4,7 +4,7 @@ import { ProjectSlideModal } from "~/components/projectSlideModal";
 import { useState } from "react";
 import Icons from "./icons";
 import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { CardProject } from "./cardProject";
 import { motion, useCycle } from "framer-motion";
 import { RenderOnViewportEntry } from "./renderOnViewportEntry";
@@ -57,6 +57,9 @@ export default function Projects() {
   const [isOpenModal, toggleOpenModal] = useCycle(false, true);
   const [dataModal, setDataModal] = useState<any | null>(null);
   const handleScrollAnchor = useHandleScrollAnchor();
+  const [searchParams] = useSearchParams();
+  const locale = searchParams.get("locale") || "en";
+  const theme = searchParams.get("theme") || "light";
 
   const onHandleShowModal = (project: ProjectType) => {
     setDataModal(project);
@@ -75,14 +78,20 @@ export default function Projects() {
           <div className="flex flex-row justify-center items-center gap-x-2 group">
             <div className="relative">
               <Link
-                to={"#projects"}
+                to={{
+                  hash: "projects",
+                  search: `${new URLSearchParams({ locale, theme })}`,
+                }}
                 className="cursor-pointer font-open-sans 2xl:text-4xl"
                 onClick={() => handleScrollAnchor("#projects")}
               >
                 {t("projects.title").toLocaleUpperCase()}
               </Link>
               <Link
-                to={"#projects"}
+                to={{
+                  hash: "projects",
+                  search: `${new URLSearchParams({ locale, theme })}`,
+                }}
                 className="absolute left-full opacity-0 group-hover:opacity-100 cursor-pointer"
                 onClick={() => handleScrollAnchor("#projects")}
               >
