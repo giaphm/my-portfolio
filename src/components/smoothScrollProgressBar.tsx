@@ -8,6 +8,7 @@ export const SmoothScrollProgressBar: ComponentProps = ({
   ...props
 }) => {
   const { scrollYProgress } = useScroll();
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -18,8 +19,8 @@ export const SmoothScrollProgressBar: ComponentProps = ({
     <motion.div
       style={{ scaleX }}
       className={cn(
-        "fixed inset-0 h-1 origin-left bg-cyan-700 z-20",
-        className,
+        "fixed inset-0 z-20 h-1 origin-left bg-cyan-700",
+        className
       )}
       {...props}
     />

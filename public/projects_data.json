@@ -2,13 +2,13 @@
   "projects": [
     {
       "title": "My portfolio",
-      "images": ["/my-portfolio.png"],
+      "images": ["/my-portfolio/my-portfolio.png"],
       "desc": "My portfolio",
       "repoLink": "https://github.com/giaphm/my-portfolio"
     },
     {
       "title": "CMS",
-      "images": ["/my-portfolio.png"],
+      "images": ["/my-portfolio/my-portfolio.png"],
       "desc": "Content Management System",
       "repoLink": "https://github.com/giaphm/my-portfolio"
     }
