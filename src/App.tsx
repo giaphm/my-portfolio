@@ -1,13 +1,11 @@
-import { lazy } from "react";
 import { Experiences } from "./components/experiences";
 import { Footer } from "./components/footer";
-const Introduction = lazy(() => import("./components/introduction"));
-const AboutMe = lazy(() => import("./components/aboutMe"));
-const NavBar = lazy(() => import("./components/navBar"));
-const Projects = lazy(() => import("./components/projects"));
-const Skills = lazy(() => import("./components/skills"));
 import { SmoothScrollProgressBar } from "./components/smooth-scroll-progressbar";
-import { RenderOnViewportEntry } from "./components/renderOnViewportEntry";
+import AboutMe from "./components/aboutMe";
+import Projects from "./components/projects";
+import Skills from "./components/skills";
+import NavBar from "./components/navBar";
+import Introduction from "./components/introduction";
 
 function App() {
   return (
@@ -15,15 +13,9 @@ function App() {
       <SmoothScrollProgressBar />
       <NavBar />
       <Introduction />
-      <RenderOnViewportEntry threshold={0.25} style={{ minHeight: "240px" }}>
-        <AboutMe />
-      </RenderOnViewportEntry>
-      <RenderOnViewportEntry threshold={0.25} style={{ minHeight: "240px" }}>
-        <Projects />
-      </RenderOnViewportEntry>
-      <RenderOnViewportEntry threshold={0.25} style={{ minHeight: "240px" }}>
-        <Skills />
-      </RenderOnViewportEntry>
+      <AboutMe />
+      <Projects />
+      <Skills />
       <Experiences />
       <Footer />
     </>

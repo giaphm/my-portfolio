@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type SkillType = {
+export type SkillType = {
   skillName: string;
   icon: string;
 };

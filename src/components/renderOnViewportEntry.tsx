@@ -16,7 +16,6 @@ export const RenderOnViewportEntry = ({
   rootMargin = "0px 0px 0px 0px",
   ...wrapperDivProps
 }: RenderOnViewportEntryType) => {
-  console.log("wrapperDivProps", wrapperDivProps);
   const ref = useRef(null);
   const entered = useFirstViewportEntry(ref, { threshold, root, rootMargin });
 

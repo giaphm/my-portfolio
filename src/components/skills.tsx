@@ -1,41 +1,14 @@
 import { useTranslation } from "react-i18next";
-import { useLoadSkills } from "~/hooks/useLoadSkills";
+import { SkillType, useLoadSkills } from "~/hooks/useLoadSkills";
 import Icons from "./icons";
 import { Link } from "react-router-dom";
 import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
 import { motion } from "framer-motion";
+import { RenderOnViewportEntry } from "./renderOnViewportEntry";
 
-export default function Skills() {
-  const { t } = useTranslation();
-  const skills = useLoadSkills();
-  const handleScrollAnchor = useHandleScrollAnchor();
-
+function SkillsBody({ skills }: { skills: SkillType[] }) {
   return (
-    <section id="skills" className="bg-[#1f1f1f] pb-[10%]">
-      <h2 className="text-white text-center font-light py-12">
-        <div className="flex flex-row justify-center items-center gap-x-2 group">
-          <div className="relative">
-            <Link
-              to={"#skills"}
-              className="cursor-pointer font-open-sans 2xl:text-4xl"
-              onClick={() => handleScrollAnchor("#skills")}
-            >
-              {t("skills.title").toLocaleUpperCase()}
-            </Link>
-            <Link
-              to={"#skills"}
-              className="absolute left-full opacity-0 group-hover:opacity-100 cursor-pointer"
-              onClick={() => handleScrollAnchor("#skills")}
-            >
-              <Icons.iconify
-                icon="system-uicons:chain"
-                width="22"
-                height="22"
-              />
-            </Link>
-          </div>
-        </div>
-      </h2>
+    <RenderOnViewportEntry threshold={0.25} style={{ minHeight: "240px" }}>
       <motion.div
         initial={"init"}
         whileInView={"show"}
@@ -69,6 +42,42 @@ export default function Skills() {
           ))}
         </ul>
       </motion.div>
+    </RenderOnViewportEntry>
+  );
+}
+
+export default function Skills() {
+  const { t } = useTranslation();
+  const skills = useLoadSkills();
+  const handleScrollAnchor = useHandleScrollAnchor();
+
+  return (
+    <section id="skills" className="bg-[#1f1f1f] pb-[10%]">
+      <h2 className="text-white text-center font-light py-12">
+        <div className="flex flex-row justify-center items-center gap-x-2 group">
+          <div className="relative">
+            <Link
+              to={"#skills"}
+              className="cursor-pointer font-open-sans 2xl:text-4xl"
+              onClick={() => handleScrollAnchor("#skills")}
+            >
+              {t("skills.title").toLocaleUpperCase()}
+            </Link>
+            <Link
+              to={"#skills"}
+              className="absolute left-full opacity-0 group-hover:opacity-100 cursor-pointer"
+              onClick={() => handleScrollAnchor("#skills")}
+            >
+              <Icons.iconify
+                icon="system-uicons:chain"
+                width="22"
+                height="22"
+              />
+            </Link>
+          </div>
+        </div>
+      </h2>
+      <SkillsBody skills={skills} />
     </section>
   );
 }

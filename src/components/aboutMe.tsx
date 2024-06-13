@@ -3,37 +3,13 @@ import Icons from "./icons";
 import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { RenderOnViewportEntry } from "./renderOnViewportEntry";
 
-export default function AboutMe() {
+function AboutMeBody() {
   const { t } = useTranslation();
-  const handleScrollAnchor = useHandleScrollAnchor();
 
   return (
-    <section id="aboutMe" className="pb-12 dark:bg-[#1F1F1F]">
-      <h2 className="pt-12 text-center font-light">
-        <div className="flex flex-row justify-center items-center gap-x-2 group">
-          <div className="relative">
-            <Link
-              to={"#aboutMe"}
-              className="cursor-pointer font-open-sans 2xl:text-4xl"
-              onClick={() => handleScrollAnchor("#aboutMe")}
-            >
-              {t("aboutMe.title").toLocaleUpperCase()}
-            </Link>
-            <Link
-              to={"#aboutMe"}
-              className="absolute left-full opacity-0 group-hover:opacity-100 cursor-pointer"
-              onClick={() => handleScrollAnchor("#aboutMe")}
-            >
-              <Icons.iconify
-                icon="system-uicons:chain"
-                width="22"
-                height="22"
-              />
-            </Link>
-          </div>
-        </div>
-      </h2>
+    <RenderOnViewportEntry threshold={0.25} style={{ minHeight: "240px" }}>
       <motion.div
         initial={"init"}
         whileInView={"show"}
@@ -100,6 +76,41 @@ export default function AboutMe() {
           </div>
         </div>
       </motion.div>
+    </RenderOnViewportEntry>
+  );
+}
+
+export default function AboutMe() {
+  const { t } = useTranslation();
+  const handleScrollAnchor = useHandleScrollAnchor();
+
+  return (
+    <section id="aboutMe" className="pb-12 dark:bg-[#1F1F1F]">
+      <h2 className="pt-12 text-center font-light">
+        <div className="flex flex-row justify-center items-center gap-x-2 group">
+          <div className="relative">
+            <Link
+              to={"#aboutMe"}
+              className="cursor-pointer font-open-sans 2xl:text-4xl"
+              onClick={() => handleScrollAnchor("#aboutMe")}
+            >
+              {t("aboutMe.title").toLocaleUpperCase()}
+            </Link>
+            <Link
+              to={"#aboutMe"}
+              className="absolute left-full opacity-0 group-hover:opacity-100 cursor-pointer"
+              onClick={() => handleScrollAnchor("#aboutMe")}
+            >
+              <Icons.iconify
+                icon="system-uicons:chain"
+                width="22"
+                height="22"
+              />
+            </Link>
+          </div>
+        </div>
+      </h2>
+      <AboutMeBody />
     </section>
   );
 }

@@ -10,7 +10,6 @@ export function useFirstViewportEntry(
   const [entered, setEntered] = useState<boolean>(false);
   const observer = useRef(
     new IntersectionObserver(([entry]) => {
-      console.log("entry.isIntersecting", entry.isIntersecting);
       setEntered(entry.isIntersecting);
     }, observerOptions),
   );

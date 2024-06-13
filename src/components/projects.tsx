@@ -7,6 +7,48 @@ import { useHandleScrollAnchor } from "~/hooks/useHandleScrollAnchor";
 import { Link } from "react-router-dom";
 import { CardProject } from "./cardProject";
 import { motion, useCycle } from "framer-motion";
+import { RenderOnViewportEntry } from "./renderOnViewportEntry";
+
+function ProjectBody({
+  projects,
+  onHandleShowModal,
+}: {
+  projects: ProjectType[];
+  onHandleShowModal: (project: ProjectType) => void;
+}) {
+  return (
+    <RenderOnViewportEntry threshold={0.25} style={{ minHeight: "240px" }}>
+      <motion.div
+        initial={"init"}
+        whileInView={"show"}
+        variants={{
+          init: { opacity: 0, scale: 0.8 },
+          show: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+              ease: "linear",
+              duration: 0.5,
+            },
+          },
+        }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-5 xl:grid-cols-3 px-5">
+          {projects.map((project, idx) => (
+            <CardProject
+              key={idx}
+              title={project.title.toLocaleUpperCase()}
+              description={project.desc}
+              thumbnail={project.images[0]}
+              repoLink={project.repoLink}
+              onOpenSlide={() => onHandleShowModal(project)}
+            />
+          ))}
+        </div>
+      </motion.div>
+    </RenderOnViewportEntry>
+  );
+}
 
 export default function Projects() {
   const { t } = useTranslation();
@@ -53,34 +95,10 @@ export default function Projects() {
             </div>
           </div>
         </h2>
-        <motion.div
-          initial={"init"}
-          whileInView={"show"}
-          variants={{
-            init: { opacity: 0, scale: 0.8 },
-            show: {
-              opacity: 1,
-              scale: 1,
-              transition: {
-                ease: "linear",
-                duration: 0.5,
-              },
-            },
-          }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-5 xl:grid-cols-3 px-5">
-            {projects.map((project, idx) => (
-              <CardProject
-                key={idx}
-                title={project.title.toLocaleUpperCase()}
-                description={project.desc}
-                thumbnail={project.images[0]}
-                repoLink={project.repoLink}
-                onOpenSlide={() => onHandleShowModal(project)}
-              />
-            ))}
-          </div>
-        </motion.div>
+        <ProjectBody
+          projects={projects}
+          onHandleShowModal={onHandleShowModal}
+        />
       </div>
       <ProjectSlideModal
         show={isOpenModal}
