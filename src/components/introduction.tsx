@@ -68,7 +68,7 @@ function Introduction() {
           <Icons.headerIcon
             // height={150}
             // width={150}
-            className="dark:fill-white w-[150px] h-[150px] 2xl:w-[175px] 2xl:h-[175px]"
+            className="dark:fill-white w-[150px] h-[150px] xl:w-[175px] xl:h-[175px] 2xl:w-[200px] 2xl:h-[200px]"
           />
           <h1>
             <TypeAnimation

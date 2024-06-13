@@ -15,7 +15,7 @@ function NavBarDesktop() {
   return (
     <React.Fragment>
       <nav
-        className="mx-auto flex items-center justify-end p-0 md:p-6 pt-0 md:pt-4 2xl:pt-6 pb-0 md:pb-2 2xl:pb-4 fixed w-full bg-cyan-400/40 dark:bg-slate-800/40 z-10 backdrop-blur-lg"
+        className="mx-auto flex items-center justify-end p-0 md:p-6 pt-0 md:pt-4 xl:pt-8 2xl:pt-10 pb-0 md:pb-2 xl:pb-4 2xl:pb-4 fixed w-full bg-cyan-400/40 dark:bg-slate-800/40 z-10 backdrop-blur-lg"
         aria-label="Global"
       >
         <a
@@ -27,7 +27,7 @@ function NavBarDesktop() {
           <svg
             // width="72"
             // height="72"
-            className="w-[72px] h-[72px] 2xl:w-[78px] 2xl:h-[78px]"
+            className="w-[58px] xl:w-[82px] 2xl:w-[94px] h-[58px] xl:h-[82px] 2xl:h-[94px]"
             viewBox="0 0 250 250"
             style={{
               fill: "#151513",
