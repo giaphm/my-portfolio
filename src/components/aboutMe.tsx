@@ -12,12 +12,11 @@ function AboutMeBody() {
     <RenderOnViewportEntry threshold={0.25} style={{ minHeight: "240px" }}>
       <motion.div
         initial={"init"}
-        whileInView={"show"}
+        whileInView={"inView"}
         variants={{
-          init: { opacity: 0, x: 100 },
+          init: { opacity: 0, scale: 0.8 },
           show: {
             opacity: 1,
-            x: 0,
             transition: {
               ease: "linear",
               duration: 0.5,
@@ -25,7 +24,11 @@ function AboutMeBody() {
           },
           inView: {
             opacity: 1,
-            x: 0,
+            scale: 1,
+            transition: {
+              ease: "linear",
+              duration: 0.5,
+            },
           },
         }}
       >
