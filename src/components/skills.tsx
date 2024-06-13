@@ -35,7 +35,7 @@ function SkillsBody({ skills }: { skills: SkillType[] }) {
   };
 
   return (
-    <RenderOnViewportEntry threshold={0.25} style={{ minHeight: "240px" }}>
+    <RenderOnViewportEntry threshold={0.25} style={{ minHeight: "160px" }}>
       <motion.div
         initial={"init"}
         whileInView={"show"}
@@ -51,11 +51,11 @@ function SkillsBody({ skills }: { skills: SkillType[] }) {
           },
         }}
       >
-        <ul className="px-8 m-x-5 text-center">
+        <ul className="m-x-5 px-8 text-center">
           {skills.map((skill, idx: number) => (
             <li
               key={idx}
-              className="relative inline-block my-2 mx-3 md:mx-4"
+              className="relative mx-3 my-2 inline-block md:mx-4"
               onMouseEnter={() => setHoveredSkillName(skill.skillName)}
               onMouseLeave={() => setHoveredSkillName(null)}
             >
@@ -79,11 +79,11 @@ function SkillsBody({ skills }: { skills: SkillType[] }) {
                       rotate: rotate,
                       whiteSpace: "nowrap",
                     }}
-                    className="absolute -top-16 -left-1 translate-x-1/2 flex text-xs  flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2"
+                    className="absolute -left-1 -top-16 z-50 flex translate-x-1/2 flex-col items-center justify-center rounded-md bg-black px-4 py-2 text-xs shadow-xl"
                   >
-                    <div className="absolute inset-x-10 z-30 w-[20%] -bottom-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent h-px " />
-                    <div className="absolute left-10 w-[40%] z-30 -bottom-px bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px " />
-                    <div className="font-bold text-white relative z-30 text-base">
+                    <div className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-gradient-to-r from-transparent via-emerald-500 to-transparent" />
+                    <div className="absolute -bottom-px left-10 z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
+                    <div className="relative z-30 text-base font-bold text-white">
                       {skill.skillName}
                     </div>
                     {/* <div className="text-white text-xs">{skill.skillName}</div> */}
@@ -91,10 +91,10 @@ function SkillsBody({ skills }: { skills: SkillType[] }) {
                 )}
               </AnimatePresence>
               <span onMouseMove={handleMouseMove}>
-                <div className="w-[100px] 2xl:w-[120px] bg-neutral-700/30 rounded-md pt-3 pb-3 flex flex-col justify-center items-center text-white space-y-2">
+                <div className="flex w-[100px] flex-col items-center justify-center space-y-2 rounded-md bg-neutral-700/30 pb-3 pt-3 text-white 2xl:w-[120px]">
                   <Icons.iconify
                     icon={skill.icon}
-                    className="w-[40px] h-[40px] 2xl:w-[50px] 2xl:h-[50px]"
+                    className="h-[40px] w-[40px] 2xl:h-[50px] 2xl:w-[50px]"
                   />
                   {/* <span className="mt-1 font-light text-xs font-open-sans 2xl:text-sm">
                     {skill.skillName}
@@ -119,8 +119,8 @@ export default function Skills() {
 
   return (
     <section id="skills" className="bg-[#1f1f1f] pb-[10%]">
-      <h2 className="text-white text-center font-light py-12">
-        <div className="flex flex-row justify-center items-center gap-x-2 group">
+      <h2 className="py-12 text-center font-light text-white">
+        <div className="group flex flex-row items-center justify-center gap-x-2">
           <div className="relative">
             <Link
               to={{
@@ -137,7 +137,7 @@ export default function Skills() {
                 hash: "skills",
                 search: `${new URLSearchParams({ locale, theme })}`,
               }}
-              className="absolute left-full opacity-0 group-hover:opacity-100 cursor-pointer"
+              className="absolute left-full cursor-pointer opacity-0 group-hover:opacity-100"
               onClick={() => handleScrollAnchor("#skills")}
             >
               <Icons.iconify
