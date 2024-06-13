@@ -22,7 +22,7 @@ const ProjectSlideModal = memo(function ProjectSlideModal({
   return (
     <AnimatePresence>
       {show && (
-        <div className="fixed inset-0 bg-black/20 z-[11] pt-[50%] min-[425px]:pt-[35%] md:pt-20 lg:pt-32 px-[20]">
+        <div className="fixed inset-0 z-[11] bg-black/20 px-[20] pt-[50%] min-[425px]:pt-[35%] md:pt-20 lg:pt-32">
           <motion.div
             initial={{ opacity: 0, scale: 0.6 }}
             animate={{
@@ -45,11 +45,11 @@ const ProjectSlideModal = memo(function ProjectSlideModal({
             // }}
             exit={{ opacity: 0, scale: 0.6, transition: { duration: 0.1 } }}
           >
-            <div className="relative bg-white w-[90%] mx-auto">
-              <div className="absolute right-1 lg:right-2 top-1 lg:top-2 cursor-pointer">
-                <Icons.x onClick={onHide} />
+            <div className="relative mx-auto w-[90%] bg-white">
+              <div className="absolute right-1 top-1 cursor-pointer lg:right-2 lg:top-2">
+                <Icons.x onClick={onHide} className="dark:text-black" />
               </div>
-              <div className="pb-[50px] pt-10 lg:pt-12 px-5 lg:px-8">
+              <div className="px-5 pb-[50px] pt-10 lg:px-8 lg:pt-12">
                 <AwesomeSlider>
                   {data?.images?.map((img: string, idx: number) => (
                     <div key={idx} data-src={img} />
