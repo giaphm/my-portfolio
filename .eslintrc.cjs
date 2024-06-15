@@ -9,7 +9,7 @@ module.exports = {
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh", "prettier"],
+  plugins: ["react-refresh", "prettier", "no-loops"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
@@ -17,5 +17,7 @@ module.exports = {
     ],
     "@typescript-eslint/no-explicit-any": ["off"],
     "prettier/prettier": 2, // Means error
+    "no-console": 2, // Remember, this means error!
+    "no-loops/no-loops": 2,
   },
 };

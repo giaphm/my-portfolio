@@ -17,13 +17,13 @@ export function Footer() {
               // height={21}
               icon={link.icon}
               color="white"
-              className="inline-block mr-7 w-[21px] h-[21px] 2xl:w-[27px] 2xl:h-[27px]"
+              className="mr-7 inline-block h-[21px] w-[21px] 2xl:h-[27px] 2xl:w-[27px]"
             />
           </Link>
         ))}
       </div>
-      <div className="pt-3 text-white font-light italic text-xs 2xl:text-base">
-        <p className="font-open-sans inline-block">
+      <div className="pt-3 text-xs font-light italic text-white 2xl:text-base">
+        <p className="inline-block font-open-sans">
           {t("footer.inspiration")}
           <Link
             to="https://github.com/Dorota1997/react-frontend-dev-portfolio"

@@ -21,7 +21,7 @@ export function Experiences() {
   return (
     <section id="experiences" className="bg-cyan-400 pb-[5%] dark:bg-slate-800">
       <h2 className="py-[5%] text-center font-light">
-        <div className="flex flex-row justify-center items-center gap-x-2 group">
+        <div className="group flex flex-row items-center justify-center gap-x-2">
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#experiences`}
             className="cursor-pointer font-open-sans 2xl:text-4xl"
@@ -31,7 +31,7 @@ export function Experiences() {
           </Link>
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#experiences`}
-            className="opacity-0 group-hover:opacity-100 cursor-pointer"
+            className="cursor-pointer opacity-0 group-hover:opacity-100"
             onClick={() => handleScrollAnchor("#experiences")}
           >
             <Icons.iconify icon="system-uicons:chain" width="22" height="22" />
@@ -58,7 +58,7 @@ export function Experiences() {
               </h4>
               <div className="space-y-2">
                 {experience.techStacks.map((tech) => (
-                  <Badge key={`${tech}_${idx}`} className="bg-black/10 mr-2">
+                  <Badge key={`${tech}_${idx}`} className="mr-2 bg-black/10">
                     {tech}
                   </Badge>
                 ))}

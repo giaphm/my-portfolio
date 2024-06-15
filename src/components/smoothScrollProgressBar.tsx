@@ -20,7 +20,7 @@ export const SmoothScrollProgressBar: ComponentProps = ({
       style={{ scaleX }}
       className={cn(
         "fixed inset-0 z-20 h-1 origin-left bg-cyan-700",
-        className
+        className,
       )}
       {...props}
     />

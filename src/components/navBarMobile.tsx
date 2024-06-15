@@ -26,7 +26,7 @@ export function NavBarMobile() {
 
   return (
     <motion.nav
-      className="fixed top-0 right-0 bottom-0 z-[10] md:hidden"
+      className="fixed bottom-0 right-0 top-0 z-[10] md:hidden"
       initial={false}
       animate={isOpenMenuBar ? "open" : "closed"}
       variants={{
@@ -51,7 +51,7 @@ export function NavBarMobile() {
         onClick={() => toggleOpenMenuBar()}
       />
       <motion.div
-        className="absolute top-0 right-0 bottom-0 bg-white w-[150px] z-[1] border"
+        className="absolute bottom-0 right-0 top-0 z-[1] w-[150px] border bg-white"
         variants={{
           open: (height = 1000) => ({
             clipPath: `circle(${height * 2 + 200}px at 116px 40px)`,
@@ -108,7 +108,7 @@ export function NavBarMobile() {
               hash: "",
               search: `${new URLSearchParams({ locale, theme })}`,
             }}
-            className={`${location.key === "default" || location.hash === "" ? "after:w-full" : ""} ${styles["navBar-item"]} text-left text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 cursor-pointer dark:after:bg-white`}
+            className={`${location.key === "default" || location.hash === "" ? "after:w-full" : ""} ${styles["navBar-item"]} cursor-pointer text-left font-raleway text-sm font-medium leading-6 text-gray-900 dark:after:bg-white 2xl:text-xl`}
             onClick={() => handleNavigationMobile("#introduction")}
           >
             {t("home.title")}
@@ -140,7 +140,7 @@ export function NavBarMobile() {
               hash: "aboutMe",
               search: `${new URLSearchParams({ locale, theme })}`,
             }}
-            className={`${location.hash.includes("#aboutMe") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#aboutMe") && "after:w-full"} ${styles["navBar-item"]} cursor-pointer font-raleway text-sm font-medium leading-6 text-gray-900 dark:after:bg-white 2xl:text-xl`}
             onClick={() => handleNavigationMobile("#aboutMe")}
           >
             {t("aboutMe.title")}
@@ -169,7 +169,7 @@ export function NavBarMobile() {
         >
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#projects`}
-            className={`${location.hash.includes("#projects") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#projects") && "after:w-full"} ${styles["navBar-item"]} cursor-pointer font-raleway text-sm font-medium leading-6 text-gray-900 dark:after:bg-white 2xl:text-xl`}
             onClick={() => handleNavigationMobile("#projects")}
           >
             {t("projects.title")}
@@ -198,7 +198,7 @@ export function NavBarMobile() {
         >
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#skills`}
-            className={`${location.hash.includes("#skills") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#skills") && "after:w-full"} ${styles["navBar-item"]} cursor-pointer font-raleway text-sm font-medium leading-6 text-gray-900 dark:after:bg-white 2xl:text-xl`}
             onClick={() => handleNavigationMobile("#skills")}
           >
             {t("skills.title")}
@@ -227,14 +227,14 @@ export function NavBarMobile() {
         >
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#experiences`}
-            className={`${location.hash.includes("#experiences") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#experiences") && "after:w-full"} ${styles["navBar-item"]} cursor-pointer font-raleway text-sm font-medium leading-6 text-gray-900 dark:after:bg-white 2xl:text-xl`}
             onClick={() => handleNavigationMobile("#experiences")}
           >
             {t("experiences.title")}
           </Link>
         </motion.li>
       </motion.ul>
-      <motion.div className="absolute top-[29px] right-[22px] z-[2]">
+      <motion.div className="absolute right-[22px] top-[29px] z-[2]">
         <MenuToggle toggle={() => toggleOpenMenuBar()} />
       </motion.div>
     </motion.nav>

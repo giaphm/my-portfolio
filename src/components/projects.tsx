@@ -33,7 +33,7 @@ function ProjectBody({
           },
         }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-5 xl:grid-cols-3 px-5">
+        <div className="grid grid-cols-1 px-5 md:grid-cols-2 md:gap-x-5 xl:grid-cols-3">
           {projects.map((project, idx) => (
             <CardProject
               key={idx}
@@ -74,8 +74,8 @@ export default function Projects() {
   return (
     <section id="projects">
       <div className="bg-cyan-400 pb-12 dark:bg-slate-800">
-        <h2 className="pt-12 pb-[5%] text-center font-light">
-          <div className="flex flex-row justify-center items-center gap-x-2 group">
+        <h2 className="pb-[5%] pt-12 text-center font-light">
+          <div className="group flex flex-row items-center justify-center gap-x-2">
             <div className="relative">
               <Link
                 to={{
@@ -92,7 +92,7 @@ export default function Projects() {
                   hash: "projects",
                   search: `${new URLSearchParams({ locale, theme })}`,
                 }}
-                className="absolute left-full opacity-0 group-hover:opacity-100 cursor-pointer"
+                className="absolute left-full cursor-pointer opacity-0 group-hover:opacity-100"
                 onClick={() => handleScrollAnchor("#projects")}
               >
                 <Icons.iconify

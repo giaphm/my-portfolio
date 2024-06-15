@@ -15,7 +15,7 @@ function NavBarDesktop() {
   return (
     <React.Fragment>
       <nav
-        className="mx-auto flex items-center justify-end p-0 md:p-6 pt-0 md:pt-4 xl:pt-8 2xl:pt-10 pb-0 md:pb-2 xl:pb-4 2xl:pb-4 fixed w-full bg-cyan-400/40 dark:bg-slate-800/40 z-10 backdrop-blur-lg"
+        className="fixed z-10 mx-auto flex w-full items-center justify-end bg-cyan-400/40 p-0 pb-0 pt-0 backdrop-blur-lg dark:bg-slate-800/40 md:p-6 md:pb-2 md:pt-4 xl:pb-4 xl:pt-8 2xl:pb-4 2xl:pt-10"
         aria-label="Global"
       >
         <a
@@ -27,7 +27,7 @@ function NavBarDesktop() {
           <svg
             // width="72"
             // height="72"
-            className="w-[58px] xl:w-[82px] 2xl:w-[94px] h-[58px] xl:h-[82px] 2xl:h-[94px]"
+            className="h-[58px] w-[58px] xl:h-[82px] xl:w-[82px] 2xl:h-[94px] 2xl:w-[94px]"
             viewBox="0 0 250 250"
             style={{
               fill: "#151513",
@@ -63,7 +63,7 @@ function NavBarDesktop() {
               hash: "",
               search: `${new URLSearchParams({ locale, theme })}`,
             }}
-            className={`${location.key === "default" || location.hash === "" ? "after:w-full" : ""} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-1 cursor-pointer dark:after:bg-white`}
+            className={`${location.key === "default" || location.hash === "" ? "after:w-full" : ""} ${styles["navBar-item"]} cursor-pointer px-4 py-1 font-raleway text-sm font-medium leading-6 text-gray-900 dark:text-white dark:after:bg-white 2xl:text-xl`}
             onClick={() => handleScrollAnchor("#introduction")}
           >
             {t("home.title")}
@@ -73,28 +73,28 @@ function NavBarDesktop() {
               hash: "aboutMe",
               search: `${new URLSearchParams({ locale, theme })}`,
             }}
-            className={`${location.hash.includes("#aboutMe") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-1 cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#aboutMe") && "after:w-full"} ${styles["navBar-item"]} cursor-pointer px-4 py-1 font-raleway text-sm font-medium leading-6 text-gray-900 dark:text-white dark:after:bg-white 2xl:text-xl`}
             onClick={() => handleScrollAnchor("#aboutMe")}
           >
             {t("aboutMe.title")}
           </Link>
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#projects`}
-            className={`${location.hash.includes("#projects") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-1 cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#projects") && "after:w-full"} ${styles["navBar-item"]} cursor-pointer px-4 py-1 font-raleway text-sm font-medium leading-6 text-gray-900 dark:text-white dark:after:bg-white 2xl:text-xl`}
             onClick={() => handleScrollAnchor("#projects")}
           >
             {t("projects.title")}
           </Link>
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#skills`}
-            className={`${location.hash.includes("#skills") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-1 cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#skills") && "after:w-full"} ${styles["navBar-item"]} cursor-pointer px-4 py-1 font-raleway text-sm font-medium leading-6 text-gray-900 dark:text-white dark:after:bg-white 2xl:text-xl`}
             onClick={() => handleScrollAnchor("#skills")}
           >
             {t("skills.title")}
           </Link>
           <Link
             to={`?${new URLSearchParams({ locale, theme })}#experiences`}
-            className={`${location.hash.includes("#experiences") && "after:w-full"} ${styles["navBar-item"]} text-sm 2xl:text-xl font-raleway font-medium leading-6 text-gray-900 dark:text-white px-4 py-1 cursor-pointer dark:after:bg-white`}
+            className={`${location.hash.includes("#experiences") && "after:w-full"} ${styles["navBar-item"]} cursor-pointer px-4 py-1 font-raleway text-sm font-medium leading-6 text-gray-900 dark:text-white dark:after:bg-white 2xl:text-xl`}
             onClick={() => handleScrollAnchor("#experiences")}
           >
             {t("experiences.title")}

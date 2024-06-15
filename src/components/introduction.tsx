@@ -58,17 +58,17 @@ function Introduction() {
     <section id="introduction">
       <div
         style={{ height: height }}
-        className={`grid grid-rows-[1fr_auto] bg-grid-black/[0.2] dark:bg-grid-white/[0.2] bg-cyan-400 dark:bg-slate-800`}
+        className={`grid grid-rows-[1fr_auto] bg-cyan-400 bg-grid-black/[0.2] dark:bg-slate-800 dark:bg-grid-white/[0.2]`}
       >
         <div
           style={{ height: height }}
-          className="absolute z-[1] pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-cyan-400 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"
+          className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center bg-cyan-400 [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] dark:bg-black"
         />
-        <div className="z-[2] pt-[80px] flex flex-col justify-center items-center w-full">
+        <div className="z-[2] flex w-full flex-col items-center justify-center pt-[80px]">
           <Icons.headerIcon
             // height={150}
             // width={150}
-            className="dark:fill-white w-[150px] h-[150px] xl:w-[175px] xl:h-[175px] 2xl:w-[200px] 2xl:h-[200px]"
+            className="h-[150px] w-[150px] dark:fill-white xl:h-[175px] xl:w-[175px] 2xl:h-[200px] 2xl:w-[200px]"
           />
           <h1>
             <TypeAnimation
@@ -107,20 +107,20 @@ function Introduction() {
             uncheckedHandleIcon={
               <Icons.iconify
                 icon="noto-v1:sun-with-face"
-                className="h-[100%] text-[25px] flex justify-center items-center ml-[6px]"
+                className="ml-[6px] flex h-[100%] items-center justify-center text-[25px]"
               />
             }
             checkedIcon={false}
             checkedHandleIcon={
               <Icons.iconify
                 icon="noto-v1:owl"
-                className="h-[100%] text-[25px] flex justify-center items-center ml-[6px]"
+                className="ml-[6px] flex h-[100%] items-center justify-center text-[25px]"
               />
             }
             id="icon-switch"
           />
         </div>
-        <div className="z-[2] flex flex-row justify-center mb-auto gap-x-8 pb-2 relative">
+        <div className="relative z-[2] mb-auto flex flex-row justify-center gap-x-8 pb-2">
           <Link
             to={{
               search: `?${new URLSearchParams({ locale: "en", theme })}`,
@@ -129,7 +129,7 @@ function Introduction() {
           >
             <Icons.iconify
               className={cn(
-                "cursor-pointer w-[60px] h-[60px] 2xl:w-[80px] 2xl:h-[80px]",
+                "h-[60px] w-[60px] cursor-pointer 2xl:h-[80px] 2xl:w-[80px]",
                 i18n.language === "en" ? "" : "brightness-[0.4]",
               )}
               icon="twemoji:flag-united-states"
@@ -146,7 +146,7 @@ function Introduction() {
           >
             <Icons.iconify
               className={cn(
-                "cursor-pointer w-[60px] h-[60px] 2xl:w-[80px] 2xl:h-[80px]",
+                "h-[60px] w-[60px] cursor-pointer 2xl:h-[80px] 2xl:w-[80px]",
                 i18n.language === "vn" ? "" : "brightness-[0.4]",
               )}
               icon="twemoji:flag-vietnam"

@@ -26,36 +26,36 @@ export function CardProject({
       containerClassName="py-5 md:py-20"
       className={cn("inter-var", className)}
     >
-      <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto 2xl:w-[30rem] h-auto rounded-xl p-6 border  ">
+      <CardBody className="group/card relative h-auto w-auto rounded-xl border border-black/[0.1] bg-gray-50 p-6 dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] 2xl:w-[30rem]">
         <CardItem
           translateZ="50"
-          className="text-xl font-bold text-neutral-600 dark:text-white tracking-[2.5px]"
+          className="text-xl font-bold tracking-[2.5px] text-neutral-600 dark:text-white"
         >
           {title}
         </CardItem>
         <CardItem
           as="p"
           translateZ="60"
-          className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+          className="mt-2 max-w-sm text-sm text-neutral-500 dark:text-neutral-300"
         >
           {description}
         </CardItem>
-        <CardItem translateZ="100" className="w-full mt-4">
+        <CardItem translateZ="100" className="mt-4 w-full">
           <img
             src={thumbnail}
             height="1000"
             width="1000"
-            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+            className="h-60 w-full rounded-xl object-cover group-hover/card:shadow-xl"
             alt="thumbnail"
           />
         </CardItem>
-        <div className="flex flex-col md:flex-row justify-between items-center mt-5 md:mt-20 gap-y-3 md:gap-y-0">
+        <div className="mt-5 flex flex-col items-center justify-between gap-y-3 md:mt-20 md:flex-row md:gap-y-0">
           <CardItem
             translateZ={20}
             as={Link}
             to={repoLink}
             target="__blank"
-            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            className="rounded-xl px-4 py-2 text-xs font-normal dark:text-white"
           >
             Repository →
           </CardItem>
@@ -63,7 +63,7 @@ export function CardProject({
             translateZ={20}
             as="button"
             onClick={onOpenSlide}
-            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            className="rounded-xl bg-black px-4 py-2 text-xs font-bold text-white dark:bg-white dark:text-black"
           >
             More details
           </CardItem>
